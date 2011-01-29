@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/showpicmap"
+      android:title="Show Map"></item>
+<item android:id="@+id/showvenders"
+      android:title="Vender List"></item>
+<item android:id="@+id/showschedule"
+      android:title="Schedule"></item>
+</menu>
