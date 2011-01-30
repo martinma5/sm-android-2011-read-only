@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schedule>
+    <performance>
+       <name>Sing-a-long</name>
+       <starttime>10</starttime>
+       <endtime>11</endtime>
+       <description>Aswcome</description>
+   </performance>
+ </schedule>
