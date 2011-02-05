@@ -1,7 +1,7 @@
-package org.usjapan.schedule;
+package org.usjapan.performance;
 
 import android.app.Activity;
 
-public class ScheduleDisplayActivity extends Activity {
+public class PerformanceDisplayActivity extends Activity {
 
 }

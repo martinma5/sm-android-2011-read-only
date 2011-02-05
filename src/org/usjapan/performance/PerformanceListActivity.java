@@ -1,4 +1,4 @@
-package org.usjapan.schedule;
+package org.usjapan.performance;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -19,18 +19,20 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class ScheduleListActivity extends ListActivity {
+public class PerformanceListActivity extends ListActivity {
 	
-	private ArrayAdapter<Performace> aa;
-	private ArrayList<Performace> mPerformacelist = new ArrayList<Performace>();
+	private ArrayAdapter<Performance> aa;
+	private ArrayList<Performance> mPerformancelist = new ArrayList<Performance>();
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        getPerformaces();
+        setContentView(R.layout.performance_list);
 
-        aa = new ArrayAdapter<Performace>(this, android.R.layout.simple_list_item_1, mPerformacelist);        
+        
+        //getPerformaces();
+
+        aa = new ArrayAdapter<Performance>(this, android.R.layout.simple_list_item_1, mPerformancelist);        
         setListAdapter(aa);
 
     }
@@ -59,7 +61,7 @@ public class ScheduleListActivity extends ListActivity {
 					String endtime = end.getFirstChild().getNodeValue();
 					String descstring = desc.getFirstChild().getNodeValue(); 
 					
-					Performace performance = new Performace(performacename, startime, endtime, descstring);
+					Performance performance = new Performance(performacename, startime, endtime, descstring);
 					addPerformace(performance);
 				}
 			}
@@ -78,9 +80,9 @@ public class ScheduleListActivity extends ListActivity {
     }; // end void getPerformaces
 
     
-    private void addPerformace(Performace _aperformace)
+    private void addPerformace(Performance _aperformace)
     {
-    	mPerformacelist.add(_aperformace);
+    	mPerformancelist.add(_aperformace);
     }
 
 }

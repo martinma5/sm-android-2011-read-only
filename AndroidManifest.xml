@@ -13,7 +13,9 @@
         </activity>
 
     
-<activity android:name="org.usjapan.schedule.ScheduleListActivity"></activity>
+<activity android:name="org.usjapan.performance.PerformanceListActivity"></activity>
+<activity android:name="org.usjapan.vender.VenderListActivity"></activity>
+<activity android:name=".AboutActivity"></activity>
 </application>
     <uses-sdk android:minSdkVersion="7" />
 

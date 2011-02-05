@@ -1,14 +1,14 @@
-package org.usjapan.schedule;
+package org.usjapan.performance;
 
-public class Performace {
+public class Performance {
 	private String mName;
 	private String mStarttime;
 	private String mEndtime;
 	private String mDescription;
 
-	public Performace(String performacename, String startime, String endtime,
+	public Performance(String performancename, String startime, String endtime,
 			String descstring) {
-		mName = performacename;
+		mName = performancename;
 		mStarttime = startime;
 		mEndtime = endtime;
 		mDescription = descstring;

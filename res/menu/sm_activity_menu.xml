@@ -6,5 +6,7 @@
 <item android:id="@+id/showvenders"
       android:title="Vender List"></item>
 <item android:id="@+id/showschedule"
-      android:title="Schedule"></item>
+      android:title="Performance"></item>
+<item android:id="@+id/showabout"
+      android:title="about"></item>
 </menu>

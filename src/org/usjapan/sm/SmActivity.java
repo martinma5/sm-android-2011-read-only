@@ -1,6 +1,7 @@
 package org.usjapan.sm;
 
-import org.usjapan.schedule.ScheduleListActivity;
+import org.usjapan.performance.PerformanceListActivity;
+import org.usjapan.vender.VenderListActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -31,11 +32,16 @@ public class SmActivity extends Activity {
 		Toast.makeText(this, "hi", Toast.LENGTH_LONG);
     	switch(item.getItemId()){
     	case R.id.showvenders:
-    		//Do stuff here
+    	    Intent startvender = new Intent(this,VenderListActivity.class);
+    		this.startActivity(startvender);
     	    return true;
     	case R.id.showschedule:
-    	    Intent startschedule = new Intent(this,ScheduleListActivity.class);
+    	    Intent startschedule = new Intent(this,PerformanceListActivity.class);
     		this.startActivity(startschedule);
+    	    return true;
+    	case R.id.showabout:
+    	    Intent aboutactivity = new Intent(this,AboutActivity.class);
+    		this.startActivity(aboutactivity);
     	    return true;
     	default:
     		 return super.onOptionsItemSelected(item);
