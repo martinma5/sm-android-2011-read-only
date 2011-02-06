@@ -3,7 +3,10 @@
       package="org.usjapan.sm"
       android:versionCode="1"
       android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="7" />
+    <uses-premission android:name="android.permission.INTERNET"/>
     <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <uses-library android:name="com.google.android.maps"/>
         <activity android:name=".SmActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -12,11 +15,10 @@
             </intent-filter>
         </activity>
 
-    
-<activity android:name="org.usjapan.performance.PerformanceListActivity"></activity>
-<activity android:name="org.usjapan.vender.VenderListActivity"></activity>
-<activity android:name=".AboutActivity"></activity>
-</application>
-    <uses-sdk android:minSdkVersion="7" />
 
+      <activity android:name="org.usjapan.performance.PerformanceListActivity"></activity>
+      <activity android:name="org.usjapan.mapview.MyMapActivity"></activity>
+      <activity android:name="org.usjapan.vender.VenderListActivity"></activity>
+      <activity android:name=".AboutActivity"></activity>
+    </application>
 </manifest> 

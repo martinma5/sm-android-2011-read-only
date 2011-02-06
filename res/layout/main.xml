@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/matsuri"
-    >
-</LinearLayout>
+    android:background="@drawable/matsuri">
+
+    <ImageButton android:id="@+id/facebook"
+                 android:layout_alignParentRight="true"
+                 android:layout_height="wrap_content" 
+                 android:layout_width="wrap_content"
+                 android:background="@android:color/transparent"
+                 android:src="@drawable/facebook">
+    </ImageButton>
+    <ImageButton android:id="@+id/twitter"
+                 android:layout_alignParentRight="true"
+                 android:layout_below="@+id/facebook"
+                 android:layout_height="wrap_content" 
+                 android:layout_width="wrap_content"
+                 android:background="@android:color/transparent"
+                 android:src="@drawable/twitter">
+    </ImageButton>
+
+</RelativeLayout>

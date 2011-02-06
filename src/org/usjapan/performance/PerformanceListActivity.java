@@ -29,7 +29,6 @@ public class PerformanceListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performance_list);
 
-        
         //getPerformaces();
 
         aa = new ArrayAdapter<Performance>(this, android.R.layout.simple_list_item_1, mPerformancelist);        

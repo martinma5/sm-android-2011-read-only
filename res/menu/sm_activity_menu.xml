@@ -7,6 +7,8 @@
       android:title="Vender List"></item>
 <item android:id="@+id/showschedule"
       android:title="Performance"></item>
+<item android:id="@+id/tickets"
+      android:title="Buy Tickets"></item>
 <item android:id="@+id/showabout"
-      android:title="about"></item>
+      android:title="About"></item>
 </menu>
