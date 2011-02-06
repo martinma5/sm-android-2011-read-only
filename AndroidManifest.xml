@@ -18,7 +18,7 @@
 
       <activity android:name="org.usjapan.performance.PerformanceListActivity"></activity>
       <activity android:name="org.usjapan.mapview.MyMapActivity"></activity>
-      <activity android:name="org.usjapan.vender.VenderListActivity"></activity>
+      <activity android:name="org.usjapan.vendor.VendorListActivity"></activity>
       <activity android:name=".AboutActivity"></activity>
     </application>
 </manifest> 

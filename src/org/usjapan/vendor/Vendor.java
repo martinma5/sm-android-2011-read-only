@@ -1,11 +1,11 @@
-package org.usjapan.vender;
+package org.usjapan.vendor;
 
-public class Vender {
+public class Vendor {
 	private String mName;
 	private String mType;
 	private String mDescription;
 
-	public Vender(String mName, String mType, String mDescription) {
+	public Vendor(String mName, String mType, String mDescription) {
 		super();
 		this.mName = mName;
 		this.mType = mType;

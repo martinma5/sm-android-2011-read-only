@@ -2,9 +2,7 @@ package org.usjapan.sm;
 
 import org.usjapan.mapview.MyMapActivity;
 import org.usjapan.performance.PerformanceListActivity;
-import org.usjapan.vender.VenderListActivity;
-
-import com.google.android.maps.MapView;
+import org.usjapan.vendor.VendorListActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -62,14 +60,9 @@ public class SmActivity extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-		Toast.makeText(this, "hi", Toast.LENGTH_LONG);
     	switch(item.getItemId()){
-    	case R.id.showpicmap:
-    	    Intent startmap = new Intent(this,MyMapActivity.class);
-    		this.startActivity(startmap);
-    	    return true;
     	case R.id.showvenders:
-    	    Intent startvender = new Intent(this,VenderListActivity.class);
+    	    Intent startvender = new Intent(this,VendorListActivity.class);
     		this.startActivity(startvender);
     	    return true;
     	case R.id.tickets:
