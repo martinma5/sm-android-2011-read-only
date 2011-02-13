@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:id="@+id/Stage1" android:title="Jpop Stage"/>
+<item android:id="@+id/Stage2" android:title="Stage 2"/>
+<item android:id="@+id/Stage3" android:title="Stage 3"/>
+<item android:id="@+id/Stage4" android:title="Stage 4"/>
+</menu>
