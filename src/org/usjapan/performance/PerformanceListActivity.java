@@ -15,8 +15,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -25,11 +27,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class PerformanceListActivity extends ListActivity {
+public class PerformanceListActivity extends ListActivity implements OnClickListener {
 	
 	private CustomPerformanceAdapter aa;
 	private HashMap<String, ArrayList<Performance>> mPerforhash = new HashMap<String, ArrayList<Performance>>();
@@ -40,6 +44,12 @@ public class PerformanceListActivity extends ListActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performance_list);
+        
+		TextView Stage = (TextView) this.findViewById(R.id.ButtonJoin);
+		
+		
+        Stage.setOnClickListener(this);
+
         getPerformaces();
         mCurrentStage = "Stage1";
         aa = new CustomPerformanceAdapter(this, android.R.layout.simple_list_item_1, R.layout.performance_row, mPerforhash.get(mCurrentStage));
@@ -54,19 +64,15 @@ public class PerformanceListActivity extends ListActivity {
 		return true;
     }
 
+    //TODO: This might be going away
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch(item.getItemId()){
     	case R.id.Stage1:
-    		mCurrentStage = "Stage1";
-    		aa.notifyDataSetChanged();
+    		switchStage("Stage1");
     	    return true;
     	case R.id.Stage2:
-    		mCurrentStage = "Stage2";
-            aa.clear();
-            for (Performance aPerformance: mPerforhash.get(mCurrentStage))
-            	aa.add(aPerformance);
-    		aa.notifyDataSetChanged();
+    		switchStage("Stage2");
     	    return true;
     	case R.id.Stage3:
     	    return true;
@@ -78,6 +84,17 @@ public class PerformanceListActivity extends ListActivity {
     }
 
     
+    private void switchStage(String items)
+    {
+    	if (!mCurrentStage.equalsIgnoreCase(items))
+    	{
+    		mCurrentStage = items;
+    		aa.clear();
+    		for (Performance aPerformance: mPerforhash.get(mCurrentStage))
+    			aa.add(aPerformance);
+    		aa.notifyDataSetChanged();
+    	}
+    }
     
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
@@ -119,7 +136,7 @@ public class PerformanceListActivity extends ListActivity {
 					String typestring = type.getFirstChild().getNodeValue();
 					String stagestring = stage.getFirstChild().getNodeValue();
 					
-					Performance performance = new Performance(performacename, startime, endtime, descstring, typestring);
+					Performance performance = new Performance(performacename, startime, endtime, descstring, typestring, stagestring);
 					addPerformace(performance, stagestring);
 				}
 			}
@@ -175,4 +192,21 @@ public class PerformanceListActivity extends ListActivity {
 			
 		}
     }
+
+	@Override
+	public void onClick(View v) {
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+		alertDialog.setTitle("Pick a Stage");
+		//TODO:  This should not be hardcoded like this.
+		final CharSequence[] items = {"Stage1", "Stage2", "Stage3"};
+
+		alertDialog.setItems(items, new DialogInterface.OnClickListener() {
+		    public void onClick(DialogInterface dialog, int item) {
+		    	switchStage((String) items[item]);
+		    }
+		});
+		AlertDialog alert = alertDialog.create();
+		alert.show();
+		
+	}
 }

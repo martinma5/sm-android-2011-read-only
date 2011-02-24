@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:layout_width="fill_parent"
-  android:layout_height="fill_parent">
-  
-  <ListView android:id="@id/android:list"  
-  android:layout_height="wrap_content"  
-  android:layout_width="fill_parent" /> 
-  
-<TextView android:id="@id/android:empty"
-               android:layout_width="fill_parent"
-               android:layout_height="fill_parent"
-               android:text="No data"/>
 
-</LinearLayout>
+<RelativeLayout android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent" android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout android:layout_width="fill_parent"
+              android:layout_alignParentTop="true"
+              android:layout_height="wrap_content"
+              android:minHeight="30dip"
+              android:background="#CD69C9"
+              android:id="@+id/titebar">
+        <TextView android:id="@+id/ButtonJoin"
+              android:background="#BEBEBE"
+              android:layout_alignParentRight="true"
+              android:layout_width="wrap_content" 
+              android:gravity="center"
+              android:layout_height="wrap_content"
+              android:layout_marginRight="20dip"
+              android:width="80dip"
+              android:layout_centerVertical="true"
+              android:includeFontPadding="true"
+              android:textColor="#000000"
+              android:textSize="12dip"
+              android:text="Stage1"/>
+    </RelativeLayout>
+
+   <ListView android:layout_width="fill_parent"
+              android:layout_height="fill_parent" 
+              android:layout_below="@+id/titebar"
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/android:list"/>
+
+
+ 
+
+</RelativeLayout>
