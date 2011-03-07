@@ -4,7 +4,6 @@ import org.usjapan.sm.R;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 
 public class PerformanceDisplayActivity extends Activity {
@@ -20,13 +19,16 @@ public class PerformanceDisplayActivity extends Activity {
 	        
 	        
 	        TextView test = (TextView) this.findViewById(R.id.TextView01);
-	        TextView stage = (TextView) this.findViewById(R.id.DisplayStage);
-	        TextView starttime = (TextView) this.findViewById(R.id.PerformanceStartTime2);
+	        TextView stage = (TextView) this.findViewById(R.id.Stage);
+	        TextView starttime = (TextView) this.findViewById(R.id.PerformanceStartTime);
 	        test.setText(mPerformance.getName());
 	        stage.setText(mPerformance.getStage());
 	        starttime.setText(mPerformance.getStarttime());
+	        TextView desc = (TextView) this.findViewById(R.id.Description);
+	        desc.setText(mPerformance.getDescription());
 	        
-
+	        TextView endtime = (TextView) this.findViewById(R.id.PerformanceEndTime);
+	        endtime.setText(mPerformance.getEndtime());	        
 	    }
 
 }

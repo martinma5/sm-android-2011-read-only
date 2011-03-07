@@ -1,20 +1,5 @@
 package org.usjapan.performance;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.usjapan.sm.R;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Context;
@@ -31,14 +16,29 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.usjapan.sm.R;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 public class PerformanceListActivity extends ListActivity implements OnClickListener {
 	
 	private CustomPerformanceAdapter aa;
 	private HashMap<String, ArrayList<Performance>> mPerforhash = new HashMap<String, ArrayList<Performance>>();
-	private String mCurrentStage = null;
+	private String mCurrentStage = "Stage1";
 	public static Performance performancetoshare = null;
+	private ArrayList<Performance> mDisplaylist = null;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,10 +49,12 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
 		
 		
         Stage.setOnClickListener(this);
+        
+
 
         getPerformaces();
-        mCurrentStage = "Stage1";
-        aa = new CustomPerformanceAdapter(this, android.R.layout.simple_list_item_1, R.layout.performance_row, mPerforhash.get(mCurrentStage));
+        mDisplaylist = new ArrayList<Performance>(mPerforhash.get(mCurrentStage));
+        aa = new CustomPerformanceAdapter(this, android.R.layout.simple_list_item_1, R.layout.performance_row, mDisplaylist);
         setListAdapter(aa);
     }
 
@@ -84,11 +86,12 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
     }
 
     
-    private void switchStage(String items)
+    private void switchStage(String newstage)
     {
-    	if (!mCurrentStage.equalsIgnoreCase(items))
+
+    	if (!mCurrentStage.equalsIgnoreCase(newstage))
     	{
-    		mCurrentStage = items;
+    		mCurrentStage = newstage;
     		aa.clear();
     		for (Performance aPerformance: mPerforhash.get(mCurrentStage))
     			aa.add(aPerformance);
@@ -108,6 +111,7 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
     	
        //TODO:  Need to redesign this more intelligently perhaps using a different method to parse xml
        //       Also need to combine the xml parser from the vendors and this to avoid repeated code.
+       //       But more importantly need to spawn a seperate thread
        InputStream is = this.getResources().openRawResource(R.raw.performance_schedule);
        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {

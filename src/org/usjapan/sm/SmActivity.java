@@ -1,6 +1,5 @@
 package org.usjapan.sm;
 
-import org.usjapan.mapview.MyMapActivity;
 import org.usjapan.performance.PerformanceListActivity;
 import org.usjapan.vendor.VendorListActivity;
 
@@ -14,7 +13,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 public class SmActivity extends Activity {
 	

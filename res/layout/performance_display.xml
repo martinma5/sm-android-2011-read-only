@@ -23,14 +23,15 @@
           android:layout_toRightOf="@+id/ImageView01"
           android:layout_below="@+id/TextView01"
           android:id="@+id/StageText"
-          android:text="Stage:" 
+          android:text="Stage: " 
           android:layout_width="wrap_content"/>
-<TextView android:layout_height="wrap_content"
-          android:layout_alignBaseline="@+id/StageText"
+<TextView android:layout_height="wrap_content" 
           android:layout_toRightOf="@+id/StageText"
-          android:id="@+id/DisplayStage" 
+          android:id="@+id/Stage"
+          android:layout_alignBaseline="@+id/StageText"
           android:layout_width="wrap_content"/>
-        <TextView android:id="@+id/PerformanceStartTime2"
+
+        <TextView android:id="@+id/PerformanceStartTime"
                   android:layout_toRightOf="@+id/ImageView01"
                   android:layout_below="@+id/StageText"
                   android:layout_height="wrap_content"
@@ -38,15 +39,20 @@
         <TextView android:text="-" 
                   android:id="@+id/to"
                   android:layout_height="wrap_content"
-                  android:layout_alignBaseline="@+id/PerformanceStartTime2"
-                  android:layout_toRightOf="@+id/PerformanceStartTime2"
+                  android:layout_alignBaseline="@+id/PerformanceStartTime"
+                  android:layout_toRightOf="@+id/PerformanceStartTime"
                   android:layout_width="wrap_content"/>
         <TextView android:id="@+id/PerformanceEndTime"
                   android:layout_toRightOf="@+id/to"
-                  android:layout_alignBaseline="@+id/PerformanceStartTime2"
+                  android:layout_alignBaseline="@+id/PerformanceStartTime"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"/>
-          
+        <TextView android:id="@+id/Description"
+                  android:layout_toRightOf="@+id/to"
+                  android:layout_below="@+id/ImageView01"
+                  android:layout_alignParentLeft="true"
+                  android:layout_height="wrap_content"
+                  android:layout_width="wrap_content"/>
           
           
           
