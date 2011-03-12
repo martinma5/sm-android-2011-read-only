@@ -2,9 +2,11 @@ package org.usjapan.performance;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -44,18 +46,10 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.performance_list);
-        
-		TextView Stage = (TextView) this.findViewById(R.id.ButtonJoin);
-		
-		
+
+		TextView Stage = (TextView) this.findViewById(R.id.StageDisplayButton);
         Stage.setOnClickListener(this);
-        
-
-
-        getPerformaces();
-        mDisplaylist = new ArrayList<Performance>(mPerforhash.get(mCurrentStage));
-        aa = new CustomPerformanceAdapter(this, android.R.layout.simple_list_item_1, R.layout.performance_row, mDisplaylist);
-        setListAdapter(aa);
+        new ParseXML().execute();
     }
 
     @Override
@@ -97,6 +91,8 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
     			aa.add(aPerformance);
     		aa.notifyDataSetChanged();
     	}
+    	TextView stagebutton = (TextView)findViewById(R.id.StageDisplayButton);
+    	stagebutton.setText(newstage);
     }
     
     @Override
@@ -213,4 +209,32 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
 		alert.show();
 		
 	}
+    private class ParseXML extends AsyncTask<Void, Void, Boolean> {
+    	
+    	private ProgressDialog mPd;
+    	 
+		@Override
+		protected void onPostExecute(Boolean result) {
+			// TODO Auto-generated method stub
+			super.onPostExecute(result);
+			this.cancel(true);
+			mPd.dismiss();
+	        mDisplaylist = new ArrayList<Performance>(mPerforhash.get(mCurrentStage));
+	        aa = new CustomPerformanceAdapter(PerformanceListActivity.this, android.R.layout.simple_list_item_1, R.layout.performance_row, mDisplaylist);
+	        setListAdapter(aa);
+		}
+
+		@Override
+		protected void onPreExecute() {
+			// TODO Auto-generated method stub
+			super.onPreExecute();
+			mPd = ProgressDialog.show(PerformanceListActivity.this, "Loading Data....", "", true, false);
+		}
+
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			getPerformaces();
+			return true;
+		}
+    }
 }

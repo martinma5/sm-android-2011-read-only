@@ -25,6 +25,7 @@
           android:id="@+id/StageText"
           android:text="Stage: " 
           android:layout_width="wrap_content"/>
+          
 <TextView android:layout_height="wrap_content" 
           android:layout_toRightOf="@+id/StageText"
           android:id="@+id/Stage"

@@ -17,7 +17,7 @@ import android.widget.ImageButton;
 public class SmActivity extends Activity {
 	
 
-	private final static String mTicketurl= "http://sakuramatsuri.org/";
+	private final static String mTicketurl= "http://sakuramatsuri.eventbrite.com/?ref=ebtn";
 	private final static String mFacebookurl= "http://www.facebook.com/event.php?eid=299149851418&ref=nf";
 	private final static String mTwitterurl= "http://twitter.com/sakuramatsuri";
 
