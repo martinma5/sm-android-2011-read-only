@@ -104,10 +104,8 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
     }
     
     void getPerformaces(){
-    	
        //TODO:  Need to redesign this more intelligently perhaps using a different method to parse xml
        //       Also need to combine the xml parser from the vendors and this to avoid repeated code.
-       //       But more importantly need to spawn a seperate thread
        InputStream is = this.getResources().openRawResource(R.raw.performance_schedule);
        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
@@ -193,7 +191,6 @@ public class PerformanceListActivity extends ListActivity implements OnClickList
 		}
     }
 
-	@Override
 	public void onClick(View v) {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
 		alertDialog.setTitle("Pick a Stage");

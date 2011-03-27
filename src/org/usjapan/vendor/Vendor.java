@@ -4,12 +4,14 @@ public class Vendor {
 	private String mName;
 	private String mType;
 	private String mDescription;
-
-	public Vendor(String mName, String mType, String mDescription) {
+	private String webpage;
+	
+	public Vendor(String mName, String mType, String mDescription, String mWebPage) {
 		super();
 		this.mName = mName;
 		this.mType = mType;
 		this.mDescription = mDescription;
+		this.webpage = mWebPage;
 	}
 	public void setmName(String mName) {
 		this.mName = mName;
@@ -29,7 +31,10 @@ public class Vendor {
 	public String getmDescription() {
 		return mDescription;
 	}
-
-	
-
+	public void setWebpage(String webpage) {
+		this.webpage = webpage;
+	}
+	public String getWebpage() {
+		return webpage;
+	}
 }

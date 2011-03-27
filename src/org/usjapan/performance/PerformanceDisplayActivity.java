@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class PerformanceDisplayActivity extends Activity {
 	
 	   private Performance mPerformance = null;
+	   private String tweetabouturl = "http://twitter.com/intent/tweet?text=";
 	
 	   @Override
 	    public void onCreate(Bundle savedInstanceState) {

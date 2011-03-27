@@ -4,7 +4,8 @@
       android:versionCode="2"
       android:versionName="0.2a">
     <uses-sdk android:minSdkVersion="7" />
-    <uses-premission android:name="android.permission.INTERNET"/>
+    <uses-premission android:name="android.permission.INTERNET"/>    
+
     <application android:icon="@drawable/sakura_icon" android:label="@string/app_name" android:screenOrientation="portrait">
         <uses-library android:name="com.google.android.maps"/>
         <activity android:name=".SmActivity"
@@ -16,11 +17,15 @@
             </intent-filter>
         </activity>
 
-
-      <activity android:name="org.usjapan.performance.PerformanceListActivity"></activity>
-      <activity android:name="org.usjapan.performance.PerformanceDisplayActivity"></activity>
-      <activity android:name="org.usjapan.mapview.MyMapActivity"></activity>
-      <activity android:name="org.usjapan.vendor.VendorListActivity"></activity>
-      <activity android:name=".AboutActivity"></activity>
+      <activity android:name="org.usjapan.performance.PerformanceListActivity"/>
+      <activity android:name="org.usjapan.performance.PerformanceDisplayActivity"/>
+      <activity android:name="org.usjapan.mapview.ViewMapActivity"/>
+      <activity android:name="org.usjapan.mapview.MyMapActivity">
+        <intent-filter> 
+            <action android:name="android.intent.action.MAIN"></action>
+        </intent-filter> 
+      </activity>
+      <activity android:name="org.usjapan.vendor.VendorListActivity"/>
+      <activity android:name=".AboutActivity"/>
     </application>
 </manifest> 

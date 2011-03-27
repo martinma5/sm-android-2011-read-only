@@ -1,9 +1,12 @@
 package org.usjapan.sm;
 
+import org.usjapan.mapview.ViewMapActivity;
 import org.usjapan.performance.PerformanceListActivity;
 import org.usjapan.vendor.VendorListActivity;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,7 +19,10 @@ import android.widget.ImageButton;
 
 public class SmActivity extends Activity {
 	
-
+	private AlertDialog mAlert = null;
+	private static String mMsg = "Thank you for downloading the 2011 Sakura Matsuri App. We are all saddened by the events of " +
+			"the earthquake and tsunami in Japan.  We at JASW wish to encourage you to donate to the American Red Cross Japan Earthquake " +
+			"Text the word REDCROSS to the number 90999.  Thank your for your support";
 	private final static String mTicketurl= "http://sakuramatsuri.eventbrite.com/?ref=ebtn";
 	private final static String mFacebookurl= "http://www.facebook.com/event.php?eid=299149851418&ref=nf";
 	private final static String mTwitterurl= "http://twitter.com/sakuramatsuri";
@@ -46,6 +52,18 @@ public class SmActivity extends Activity {
 
         	    }
         	});
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(mMsg)
+        .setCancelable(false)
+        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+            	mAlert.hide();
+            }
+        });
+		mAlert = builder.create();
+		mAlert.show();
+    
     }
 
     @Override
@@ -62,6 +80,10 @@ public class SmActivity extends Activity {
     	case R.id.showvenders:
     	    Intent startvender = new Intent(this,VendorListActivity.class);
     		this.startActivity(startvender);
+    	    return true;
+    	case R.id.showpicmap:
+    	    Intent startmap = new Intent(this, ViewMapActivity.class);
+    		this.startActivity(startmap);
     	    return true;
     	case R.id.tickets:
     		Intent launchBrowser = new Intent(Intent.ACTION_VIEW, Uri.parse(mTicketurl));
