@@ -20,7 +20,7 @@ import android.widget.ImageButton;
 public class SmActivity extends Activity {
 	
 	private AlertDialog mAlert = null;
-	private static String mMsg = "Thank you for downloading the 2011 Sakura Matsuri App. We are all saddened by the events of " +
+	private static final String mMsg = "Thank you for downloading the 2011 Sakura Matsuri App. We are all saddened by the events of " +
 			"the earthquake and tsunami in Japan.  We at JASW wish to encourage you to donate to the American Red Cross Japan Earthquake " +
 			"Text the word REDCROSS to the number 90999.  Thank your for your support";
 	private final static String mTicketurl= "http://sakuramatsuri.eventbrite.com/?ref=ebtn";

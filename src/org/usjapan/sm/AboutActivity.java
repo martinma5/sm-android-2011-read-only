@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 public class AboutActivity extends Activity {
 	private AlertDialog mAlert = null;
-	private static String mMsg = "Sakura Matsuri App v0.1a\n\n" +
+	private final static String mMsg = "Sakura Matsuri App v0.1a\n\n" +
 			"Stay tuned for more updates.  If you wish to contrubute " +
 	        "please visit https://github.com/martinma5/sm-android.\n\n" +
 			"Until then enjoy this neko burrito.";
