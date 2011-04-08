@@ -3,10 +3,8 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:id="@+id/showpicmap"
       android:title="Show Map"/>
-<item android:id="@+id/showvenders"
-      android:title="Vendor List"/>
 <item android:id="@+id/showschedule"
-      android:title="Performance"/>
+      android:title="Performances"/>
 <item android:id="@+id/tickets"
       android:title="Buy Tickets"/>
 <item android:id="@+id/showabout"

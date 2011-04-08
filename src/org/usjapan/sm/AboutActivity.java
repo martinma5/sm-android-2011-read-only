@@ -7,15 +7,13 @@ import android.os.Bundle;
 
 public class AboutActivity extends Activity {
 	private AlertDialog mAlert = null;
-	private final static String mMsg = "Sakura Matsuri App v0.1a\n\n" +
-			"Stay tuned for more updates.  If you wish to contrubute " +
-	        "please visit https://github.com/martinma5/sm-android.\n\n" +
-			"Until then enjoy this neko burrito.";
+	private final static String mMsg = "Sakura Matsuri App v0.1\n\n" +
+			"If you wish to contrubute " +
+	        "please visit https://github.com/martinma5/sm-android.";
 	
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage(mMsg)

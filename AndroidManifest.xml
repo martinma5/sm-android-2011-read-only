@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="org.usjapan.sm"
-      android:versionCode="2"
-      android:versionName="0.2a">
+      android:versionCode="6"
+      android:versionName="0.5">
     <uses-sdk android:minSdkVersion="7" />
     <uses-premission android:name="android.permission.INTERNET"/>    
 
@@ -16,16 +16,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-      <activity android:name="org.usjapan.performance.PerformanceListActivity"/>
-      <activity android:name="org.usjapan.performance.PerformanceDisplayActivity"/>
-      <activity android:name="org.usjapan.mapview.ViewMapActivity"/>
-      <activity android:name="org.usjapan.mapview.MyMapActivity">
-        <intent-filter> 
-            <action android:name="android.intent.action.MAIN"></action>
-        </intent-filter> 
-      </activity>
-      <activity android:name="org.usjapan.vendor.VendorListActivity"/>
       <activity android:name=".AboutActivity"/>
     </application>
 </manifest> 
